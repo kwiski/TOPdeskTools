@@ -1,0 +1,9 @@
+<addon>
+	<guid>{9BCE56B3-36D6-4E5C-8D20-FF517B269B0B}</guid>
+	<name>PVS</name>
+	<packname>RES ONE Automation Pack for PVS</packname>
+	<buildversion>1.0.0.0</buildversion>
+	<tasklets>
+    		<taskletfile>Tasklets\TOPDesk Get lists.tsk</taskletfile>
+	</tasklets>
+</addon>  
