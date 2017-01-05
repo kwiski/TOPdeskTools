@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>TOPdeskTools</id>
+    <version>1.0.1</version>
+    <authors>M Kwiecinski</authors>
+    <owners>M Kwiecinski</owners>
+    <projectUrl>https://res.com/products/res-one-automation</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Set of tasks for TOPdesk</description>
+    <releaseNotes>Initial release notes</releaseNotes>
+    <summary>A summary</summary>
+    <copyright>Copyright 2017</copyright>
+    <tags>ITSM TOPdesk</tags>
+    <packageTypes>
+      <packageType name="ROSS Buildingblocks" version="1.0" />
+    </packageTypes>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>

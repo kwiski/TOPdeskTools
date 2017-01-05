@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<!-- RES ONE Automation Building Blocks -->
+<!-- Created by kwiski\administrator on 1/4/2017 4:47:10 PM -->
+<AutomationManager>
+	<buildingblock version="3.0">
+		<projects/>
+		<modules>
+			<module>
+				<properties>
+					<guid>{69066BA4-F7E1-4AAC-BBE3-BC06EC49A2B1}</guid>
+					<name>Test new user</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.0</version>
+					<versioncomment>Initial version</versioncomment>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath/>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters/>
+						<conditions>
+							<condition guid="{98DE0189-6811-4C2C-A7CB-1F71038F20BB}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><variables><variable><guid>{5B71DA96-59D1-47AF-993E-6E4DD872E489}</guid><name>TOPDeskURL</name><description/><type>0</type><parentguid>{00000000-0000-0000-0000-000000000000}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable><variable><guid>{D72C4A46-A1F6-43C6-B537-ED69DED9FCA4}</guid><name>TOPDesk Admin</name><description/><type>0</type><parentguid>{00000000-0000-0000-0000-000000000000}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{76DC62C4-1EA0-4F88-951A-FF8C973471D1}</guid><name>TOPDesk Password</name><description/><type>1</type><parentguid>{00000000-0000-0000-0000-000000000000}</parentguid><details><value1>0063009400CD00BD0071011400A4011A</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task identifier="{3564E975-7A22-443E-8D51-57AE0A364A24}" version="1" upgrademinversion="1">
+						<properties>
+							<type>TASKLET</type>
+							<taskflags>41</taskflags>
+							<description/>
+							<enabled>yes</enabled>
+							<comments></comments>
+							<onerror>resume</onerror>
+							<guid>{98DE0189-6811-4C2C-A7CB-1F71038F20BB}</guid>
+						</properties>
+						<settings>
+							<parameters>
+								<param exposure="2" suggestedexposure="2">
+									<name>LastName</name>
+									<value1>Smith</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please enter the new user's last name</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>First Name</name>
+									<value1>Bill</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please enter the new user's first name</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>EmployeeNumber</name>
+									<value1>000111</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please enter the new user's employee ID</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>Network Login Name</name>
+									<value1>bsmith</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please enter the new user's network ID</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>Branch ID</name>
+									<value1>ee4b7255-4331-5457-9587-26e44d6cd4cc</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please enter the ID associated with the new user's branch</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk Portal login name</name>
+									<value1>bsmith</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please enter the TOPdesk login name for the new user</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>password</name>
+									<value1>res4ever</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please provide an initial password for the user</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="1" suggestedexposure="1" noinput="yes">
+									<name>Results</name>
+									<value1/>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>ID of the new user</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>email</name>
+									<value1>respartner@demo-res.com</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdeskURL</name>
+									<value1>^[TOPDeskURL]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk Admin</name>
+									<value1>^[TOPDesk Admin]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description/>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk Admin Password</name>
+									<value1 encrypted="no">^[TOPDesk Password]</value1>
+									<value2/>
+									<value3/>
+									<type>5</type>
+									<description/>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+									</inputoptions>
+								</param>
+							</parameters>
+							<content><![CDATA[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]]></content>
+						</settings>
+						<setup/>
+					</task>
+				</tasks>
+			</module>
+		</modules>
+		<resources/>
+		<runbooks/>
+		<teams/>
+		<projectfolders/>
+		<modulefolders/>
+		<resourcefolders/>
+		<runbookfolders/>
+		<teamfolders/>
+	</buildingblock>
+</AutomationManager>
