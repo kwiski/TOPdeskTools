@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>TOPdeskTools</id>
-    <version>1.0.1</version>
+    <version>2.0.1</version>
     <authors>M Kwiecinski</authors>
     <owners>M Kwiecinski</owners>
     <projectUrl>https://res.com/products/res-one-automation</projectUrl>
@@ -13,7 +13,8 @@
     <copyright>Copyright 2017</copyright>
     <tags>ITSM TOPdesk</tags>
     <packageTypes>
-      <packageType name="ROSS Buildingblocks" version="1.0" />
+      <packageType name="Automation" version="0.0" />
+      <packageType name="Connector" version="0.0" />
     </packageTypes>
     <dependencies>
     </dependencies>
