@@ -1,0 +1,2995 @@
+<?xml version="1.0"?>
+<!-- RES ONE Automation Building Blocks -->
+<!-- Created by demo-res\mkwiecinski_adm on 3/8/2017 7:53:43 AM -->
+<AutomationManager>
+	<buildingblock version="3.0">
+		<projects/>
+		<modules>
+			<module>
+				<properties>
+					<guid>{1F7C242D-BCEB-4289-B844-B120151ACEF4}</guid>
+					<name>Create an incident in TOPdesk</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.7</version>
+					<versioncomment>Updated version</versioncomment>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>Incident Management</name>
+									<description/>
+									<guid>{94EC8A73-60C7-4511-AABB-1710AFA29A1F}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters>
+							<param>
+								<name>Incident configuration</name>
+								<type>4</type>
+								<description>Use a line separated envelope to specify the data that will be send to TOPdesk.
+Please see Online Help for more information.</description>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="yes">yes</importbb>
+									<schedulejob showprev="yes">yes</schedulejob>
+								</inputtiming>
+							</param>
+							<param>
+								<name>StandardOut</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint/>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{6ED48E1C-E291-452A-8259-51E13FE73FEC}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task identifier="{B022ED4B-9437-4D13-86EC-150B08EE5B08}" version="15" upgrademinversion="1">
+						<properties>
+							<type>TASKLET</type>
+							<taskflags>41</taskflags>
+							<description>Create an incident in TOPdesk</description>
+							<enabled>yes</enabled>
+							<comments></comments>
+							<onerror>resume</onerror>
+							<guid>{6ED48E1C-E291-452A-8259-51E13FE73FEC}</guid>
+						</properties>
+						<setup/>
+						<settings>
+							<parameters>
+								<param exposure="3" suggestedexposure="1" noinput="yes">
+									<name>StandardOut</name>
+									<type>4</type>
+									<description/>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="yes">no</importbb>
+										<schedulejob showprev="yes">no</schedulejob>
+									</inputtiming>
+									<setparameter parse="no">$[StandardOut]</setparameter>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk administrator</name>
+									<value1>resiteam</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Please provide the username of a TOPdesk administrator account with API permissions.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk administrator password</name>
+									<value1>00630074012D011D00D12082010400DA</value1>
+									<value2/>
+									<value3/>
+									<type>5</type>
+									<description>Please provide the password for the TOPdesk administrator account.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk URL</name>
+									<value1>^[TOPdesk URL]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>Incident configuration</name>
+									<value1>$[Incident configuration]</value1>
+									<value2/>
+									<value3/>
+									<type>4</type>
+									<description>Use a line separated envelope to specify the data that will be send to TOPdesk.
+Please see Online Help for more information.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="no" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+									</inputoptions>
+								</param>
+							</parameters>
+							<content><![CDATA[0SO1XNnxDhDUrF3rCcW3iBvDLFV8nJaiMCk+3o1rkJVP198etc1xaM15p7PuJ90f/yTrGHqjKHa8kZMN4HOVUKUArAF4UQ8E/Q25jd2FHvnQfItjASn9972+9eNt4VMNzMtL+d5dKOzC0cnDjeYjELEIgpz4C8d3GXVR2AcoKdTUL683fXb/+Pi8WJVGl1zIm6yDQF0gSuaz45k80X1W12fgCJVl6tucJcmPqM+JdxXv8Asd48pjV+eWSfQeU1P5b4DJgD8d2dBseGsVtDKUFKUQsCBaOUYjQeVDATs8utQ5CHIUFIg2nM0rzgaDimxX9hYp7pZgl8jHSDCVqISSjX/Nfq3b/hQ0zirT+bKsaA7/N+2UEPBO8pnlWPyE5hm/XEGpOs/r6wdJNqLQRAn2VFHB0blALEf/MB+Jokhjafm5JHNluXp8wDGPGQ1/1WKNVyNJiHqJw5e1GyN12Qd+Wj/mdmPPjm7Mcqlffd+O1Sop8EOG+WzRrJA1vPdFbpcG8mBpto6W8YCKeQVw4SPjHQUpwfwMqq5J4eeMpqZKlEpXYAbUYlnxpYFoj9QFUnfmPRwJlc2H/I4W0Me2PEVsvkXyir9oki++VrfgUMnRJ+GxO8QKJoMR3NTwScca6f7mKHGdkokNTTqO0z46SO9aGsdpmKAgHXFXs6SvjppPdTxKYt1l6eqG+vFjOx0jRtHya7SST1J/+vthVODTj+UKilvGRWEgi/TNiUUWm3nd83aQdV/NB7XzZYkNiRKvwQoxRp0S5hPo6YMRdoVFO0AoHVzh2lId9xNdj0ffUBUXUKJgkGHJOJz5A8SMHX4QTDQoVWkFzp6kZh2Y6jkfNTProABLjCijy2wHnRYE9ErRwwp3Dp6smklSjE4PA+fqU+HU/zLK/OgHVIyEj59N2TSB7JE/U1rLbMwR6SPAah4ZvzT0buLWx1n2v7CqX1voh1TGWH2ERAE3WLzPVc97xvUvAHTgj+h5yFe7Ehn3bLELaLahImH67wGhqd+yFwV+o88kwwIGM6JGwd5CO4mWsfD+KEjTK4DUWwHuRcBrH75lpqWjh8vhuQSUnxBoF3g1AlEo0C5b400OIBY2rfWss4OpvVeWLih//vME4vX6OXZ/RmDl3AVjForuov8NOV70wePbS9RVcCTPMknHCIvkY1RzrSaE+a6XRXZrUONAB91KJw74SWr/ZKIcgWKXwFq2TUgM6LLh0GfpsK90QFlFv69eMhGNDNegRYJntn77A+G485V1mYS2OXmwf6yUDlwMuztDgOMoEV7pwmhKZp1/f0/3Ay3ChqcVOpl2xmYofHDzhxPYj1sf25vW3pvv6CRWflowHgyFh6JEyqQabGNsYlSONk0jD9lsQkVXfS/+oVU0WaMz5ab+wU5269P8tJjU7//b23YuM3r8Q87BZVC4xShVeNcGd7fmLelaGK+f831ufLeJs2Ni5MYm9klpqkXruKeVuBfDEYURDiu115XRJL1boiQzbAP4dTMIXjP7tCzOKoZ7KfPaOqFNTnxTidVeH1h3kt/OpCfN4HmFKImC23nmxoOQ3Z0UNRWc/RHl0M6A6DlInzrI0mz+K5HB+RTwg51bjZ2U3NJwJwe+M6nOzg53TQogXrYEXG+RCdExMTZ2icjDfAN00dBe0KplT6cB8WDNCLS3dgvsY30xr+jzuMSZ+G+SC8SZ66PdtuUkmeaHf3y4xJ/RE9ny2Q3wWckRICDGzf0H3z7mepGEXxuM9kgAww927Ipv5f7/o9m0zJ9LSGfkYNaGCxZUCCM91nXPAH3PS+g7pubuv72danAV2Lf+MyS/96l+ILr45xu17kNrc8IglacFgBTvkSmGlMvE6tX0RXB2EiBgnr+Dhjpq2LG+woODAiqzKrjr8GBW7FnK7JzTgD8n0qo2SED/waJ0NZvkvwf0LMeNOFGa0yHDhvphs1Q30OKxOfXo6FnBihvUeO4f/khdMtb8rczwqv3phuDQNhtqGw5+KZrhOCJiX5tgMuvgf5h/PNk3h5BDsJxYmMyXI+3NRyur+jCaTq3jKxZ0evWONAedK3SZwd+7m40VDUsocQDqqdLu/EuQqVjJ0kxgDnnT/zml9o2lg92VeOxJLBQQRVp8wYEVDgXa1n383QJPPdlEFq3NM2bMFHb1QIysmBOcg7FggQDBJx1antDp8oCniMzZZCLQ5bYyG2hYo5minLd5BTCOs6Anjrewkq3pC5xEeC6U5xKhlu++LWwG0Kn/aDxATvV48+z57Lkod64RDDJDEigx/NIoLk8V9Xhs2si5UMSmztQw0cwFqjlaNpAPjSFVsUwrkLkeasPUdUBqNwGWuMzeQFNafmpGatyo7vIxi7N4erkdxJn6NJojyEveMcWfjF0Pj1cXLDZNl1AzUS0dnRZyYqCCW7eqHHR6qQyxKv7WNxl+/rpdP8LKYaKWCAVyfek1CQSVwmg0XP0yNHDe738KDIS8QEwwy0/6B4S1o4NYpAt4mhtXBSg1sZUNSUx2tSqBbHcyBebx8ol9TMsqNJ1T4hFZOTK5XYgTbbzF9heBWcJVFVovzQuyR3urDX94jRJSaGFFRfV/IvoXrFtZAjqPOFdnoWIr5LTCIBnCJT4j9hN1ST/7chBg6q84ZCn/p/7Ba+mqOnIm2l4o4ivEtgChPXGUwrZUTx2iC78CGHiC1eTFIgRMl/ERjKh7YPfCMBB3b+V/EH4eW4M1HSLinkZAheVZBB3njPDuO3cq7llEEyz3zzWxJ7AganNrl5aku1tVXus3KoHsSvvD6jvUPojr/C7aezSglqTMgkmKnrx58otZS4umVSUW2LM4eSDVeTgIsDJ48GjbQdg4AvVWsYkqFOALx60jHEKvrWdl8/+JSwBrDl5eohrPZZELT+YeiuWH6VopSm4yVshVGm6cUecONi36iVMiKSO8WWEqiHoFW2CyyTGfv25Z3WzV7ekbFcXbYKW++rH0dOQBgzhlEIL5FA2cPGdR5cTxBmnqURWGU0zaXI6t5tfzG1aJRrTlVJuVWo26zW4t1WCOVhvvxCKTQ/DVrHbc1WBYmnJrcPxOOe4zqLL+wa0XNEbc0FfMboJ1KXfO5EumBzGpBvTfG8DxaU/GaKfW1mfi3Pi2Equ8is0evLwtA59Ht9DWnRM+B853k/75h1Y4W7fxkaPjLNf7CWNzcgpdSWnNQs+x8j2PHx6MPz0+hQpRkTZSXF8dq/v4Romu+5rCQLKVRFJddRwptkOen3iIQjm0qLmRm8gXM4L0/YCqcpvaIvuY1Zk9Cfb9Ao7rZx4fUCEW3qLMRh81mDr9QsRtlJOj56F1s4quWl3F4kKkdqgcv7zzobOP7HPsJqTBZfVdR4lWCxyv9ZxiEWOPX8HbjGBo2h+PT2iTRzOeHMr8wF0HcFn03OEpoB3E2N7JwCBkcHECMeqdYGedyvpdXHXiuRonQ26ek14ZC5vEJwr+wKf2JnllyLElvIicB7eiY00rzxMyoGMU+hRxk/5ijEuT9GIPSe+Aw/GCYFWxuVO+SedYQeQHhSqcrc/I1LHIganuqo0UXCDMwQBn+H+N4tI/hEOV9N8icnfPry3uAAZZm3kMTCa73uIUr2uQNpoUxfkFgE5QAxCdCgLt+hqIxcrK1ZCVhtE+fLwE34mXKgoD2qBI5kIzHDVgyZkVJv5pT0YZs15++50aBqG2JajYpdoelnGJeaFVqjDb2ZMON0cGd2odFg+L33WDAA3jSpY0b+woMbPAqmCaPYAIrqRB2c3NuuHly7LZVoVPyZBQ01AQOq7s31LKiuXEevoFEXsgAxbFoO8lGisYn1nU3mxsdIeT3HSAKf2dHKvOKY2Fnu29VWs3GoMM8XLXmHCrAGhPriIauYHwf03Fe/MRklJa3UnLBqUIId5XGrUGiHaA5uXIwPRzTj8fZ04w/Znyuj43OW7z6l4tgjzl5y1WSjxxYRhGSXjdfsS+V5zVmKkckLEft9mv0t6wJG34O2VuESIIT4OF+sQ4jTQ8jWkJsD0e0wRXFIUnVlO8Lz8IgZEPoJv0uWnZsqheo+pWMTHDWBZ+Y/S9I82VYlwuQDudD24F+cTMHlBV+PoYiaQdLDa6d3Qia0y+MPoeF2F1xoSa+KMEQVfa+dlQpfVuUQc/HHy83ODNe2lopNnSWE6AAFWg5241QfukMjBHniQcNVUhHwSBIDem1ZwJOticZE5gzhPTzHB193FY5isyHSBthSRYA5MCFoJgzmJFZ2HdYD4TNUiK5cOeq07uQa2gGiwBapn4nFXLSyI/sfO26a1oKOXOZnhydN2MTp0zwqyiIxZ0E7HLOPw1HZWyP8kYl/M/wtnZx1+bCc6TqYCtYFReXfsjs7++jDVqrYmqFGqhs+if7YA/22WLyiY1gZ+dwLmPczMqGAZwDBJFVjnBuSgJnkTwpKSqSAaR9AF/1olBxCcM4svbWumUfnwdI6y8Kfik7oIfxHenB9JzSNE7v87yeKPjpcPuvf+haOeokJ/3Cb2EtrrKMmYqyiqJWW3a0HClrquMKqqe4u3nuovTSL0yBYM0TEtdW0G5SUNeqmpKoDUrwmHEqt0dcESchvat4K0fi0kOUL1Ww8Ld95Vb1SV3NggVPxbJk+EBKLhXSOqQOrAgY1OMwQtk4GPkgykDVsVgmdag6gx/niwfuBlSlVdZsIDLpr5/pr6TLmO5KGrdyJd+ap0JyBWG7bGFRcbMjNERc/7wWZ3cCG3ITgIdT022Qqy1csD1ibHFxooayHCEpD4IDqOWCiklHMuiUZWOfrtAHYi6O36bmP95rmDI3fKAGs/XcbuOeJUF4pq6PK8MvBtJm4bAEZIwx4QsjMp3oLivPf0ZODEMg8TctSxNckIRY5UvqmHPoAOudoIO4gZbiDb9CojjbFnRJlUmGsZkn64HwjhB+p+FB1VwUmLhT5CSFC23bSIw7IaadHevCspChdwTVqH19yv+RWUhmY1fYWzx7Gbw/04oWBrY2P5E+tGo6cSTSvlTh5tNwHInx4auqzzmlh2LvL8ZC3X4Dpx2IqjeFPUN/dl5BJiZvkp4ornQecGyz4uqjU2OJDSTAOL+r/gzRoHeA8djkcUnf5W1Bwrecsgf4a+SwykOHkwyf0ls+DVMW9Zdm0Fokg8xPkHe+gGAiUeMMpZQ7+T8LmAjgM/wnj6akgNixOFDW083UHbKn5mFV7CDTRVTFhN1SL57ANIUAUKrLiCntGPq1/OrR/f1egcuIaB8Jxq1icigFdPMFEkmfmiS/bUzv10xRfV5qRgKaKwaeDqOKMdVv/EN1qYO/8nCPDhKH1+ATeRaAlfkq7Nq2R3/5rg1EkwOK1yvLhFYA2N3lB9UGU4UuQ+DMI3QcE02Dlh9VfCUJQe+2xg3fIew+bbNDJ+f2EbexUWcu1BDQiTXCVsKOHlbZKlav23NsBsEP1bo5e1ZhodHCY6nFfloJqEnb+LYbn1W6+16Z73+/EjZ+nzhK51j2TKFjyE/l9JoIcfZ067bzaYKVcCN03VKeZrWyX0N/zSOJtKiGKsbyZjI7bDD6INOPJInwC8j/uyiDI0Mp8A87KyOY4NaF1xbMXpsoGHbBLH0ogklLTx+C4lXCVv2nZm6R8ht+dvWbHK/H7P4cQFflRnoc0HTtFR3nDehaclQRxAF7bYHNsFZLkKyIJSmORT+xeTx1/OcG9Ej1SB+6grjwDktUlzvPun0GHu/VievznaHOEDkK7r33byvm5TAFstopwd5b37jbdhxpKLy57BfzAhavhI8QmxPQ/9sysNxoZAeCq42zbzxlk7+Zz3v4CMkhkInG3M6x8n64AISVdmHYb6vxnsD0p/LNwxf6UbfVohEkOoY+NQoDaudBc9trOyXOyvdyxybJ+URfgvCTED9iUghFK0ORAbOkMK2xYQ6O4ZrlFIr0VeUe7xmM2tdK1eeILy0M+UrrxNLa4XppweBE1sfJuwsfalvZMLfDz0S08Ty8jSxiE5FO1LUHgctpBs4ERxNfJ28s9zmYXQq8DnBuLO6ump6CghSsVQ0CjM5EKSukzMAX/c88GF+4KeOzqvs6w6HihBjCShSS7LX74ogw+9tN6MZtHkpWLYNXtJtEVSj0GxvcG4cA8IeNaZTEbEjlkGT/1stpn5pY+LTNgtmCBq0eS99s8R5KbGMK6pephBi1sPHFBEu3Wdm7+HUUQioiRGXfkWTgtOUm8WY5duc9moCsweYjjE48uKMz6tsS65S41l33mcjohZ03vUEo7DFpRwpRmrXJD4PgXJtCtKlniPI5vyjX1wb7qBu50+qZ4sP+xEi2STl0XbTNipond5LDsoQ8swhsCk+JBjrL5ce5cqhBPOyfzh5i4rslQVRmRlYl1kYBwZlyjR88oQM5xcrC0NcaCDI76h7QmqDePaStJE/zidxFm6tEgJMuqGkH01jAfh6Y2ee16S69gV8gV7TvUl0yRtIM26PJk0ZB610LV8Q4JeDtM7Ss4t9g2GPwgZ+7lsg/9DQ+jo4Fp36ApnQx9MCdujgFjDHpVlUF8FyvmRq6lMN0yhKeg0zCpn8N3gznnK1PqjYzkv6CSUZQgiSgDRWTE588piSudwas7GFjpg72p/0jh8E0XQT6D9TYAqTnZLC12vOCryC8ql2lRcXfpKS18vtT9gCXzXOIi1mncvbX0jcDOOP4y6IyNv2XmuxjXqp+pupWt9UNYKL9y3B25qWwJ8NdO0BLTVTzynthpN57iqJ9VJcG6Ya3O3f2jJ6Ou8fhGrSCpFzRzz5BjvKv6INXLj5XjjxOU7qTxC49nLdLy1Du2CEzVMwU55DXKOojZruPUOwNnEqUXliThgJtpRH2SgVkPd4QRjuFSJz8HTxAHKV4UhkLIRg91dWV3UVf4t/Q/JJlOKFvPm7TZ0TFFRlAsWBJrLz+xIbkaBX9rC+/LJ7UY8l8E2VeMJ/AOgJk0U4mSqj3CmknSVj7ZCjj2T0FHKGHWuRJVv8WHjOYGDDqlaeHUt0HqXlufxMklK5/Poo9MQTlii6KYl79Zh1kIWn3tN5d7GJ1Gi2l9bQ2viEa3dO7h9xvo4xFFXe1dJ3R5GrhDa6kqTON/W97mcHbt7XSrnSd/1erlwhNYSPpJ/K8vHMWsJJlMZa3MPAymwzCoZXNzsGJiiJ2Jlyd4Ib4T3CN4i57x/3mVIjpqtT8nHY/+Isk1Cb5ZVbI5tsxToLxC27FdJudNzpEjKEasMlIy3kc6TKibXx4Pyq5NEfDnrEDfLUKe0RLe1IvQ0dqnZItAQo5VzgKsZp0Scohw4iMcY2tLIrs7r3qwi0RFFvW02aPmGL5YUiucEk3y0cgsGvb9xyqExrR6YKErEpG7vGsZq+iS10t2m8llRjsN8QeFl5T7wPSe+mydh1BspOMdDb0a45biCoetQwnxin8vAUra9RoaWLSpM/7v5kMT0PBRBWd+zTkooNLjP+emFinFeLZcy/P3wr63dyW7z91snBa/kI4sH83HmqMHGZElqx0zCha43qjuCbmUeLA3n/w0XXHSKtUF5wLvmqbUnh5vBVzVrrLre7dwvTqY2K60KLx2d5xAaHnOCX+2T6u9B1Ngx6TUJsFpC3EyDEoKXqeoh5z6hOgzDiOQ2x6LpccI+eluIJx8H7raBWrZArWM3/9BeHm27iIaUV1XXGy0/uKr/wfaRob7EFycgYEDL2ChaAFAwAz2qC/YfePfNjZMZLwhH5s2xg3RSlAu7GnxdhLzfmUzeViF5UJ/9q0vQzNYnXqG1A1yY6xQelfSPRrzQHLlM0Y6YpbXzeqi4vap7XDJsSZ8rSCaAd2V9xzbTAHeN4bU9U8SHWTiTVY5DaCvvf4zRY/zMCcLq7vul6ygsK1RmaV0e7/yJQ123k/vDr0a2vhBS4Gd5URsYwYAab4FAp7K8F4UjHMS9SNtMEoV6hB8Ac8BMbp7jaJH3P0WA4ukIP+BqjnbS1NUxtdOyv4VM6JqjLNzhtmGc1OHGgv7tTPH/zdBrxXgmc4DArRaWcMexxiCouFIin5FGUbFX64CRvGwdZNyIyN/utKZ01+j7aKhjjOQmXzn0uppY3gVMkbzVWFEECRvMQ1TZi3LXOxRIu1e8n2evLdwtEnp0m/1KjhYvchY7LHZn7fy+MULNr/6ZHnGpb3qGIS7eN3AfzPW3UZmzCNWCRxKokaMT1+XlNB+Vyc2gPRs1xc/xDrKLjZ9qwc/apM6Rbo7M0d1Domx4SKwj0tWSPvOdTD77YiXTzlWwqzz4OeriyWmftlUcBLltxm/im2G000x5ZZ9wDBfjuZTnPxHgiQZsjhjpju9IOnyR01+LYOhHH3+85ePqTo2wOBJBq+i/2yoMSUsBk55w0alm61mi6Yghx3LcsoV9w15MLYXh5lu9sRIi8awjPSo4eLfAFvNEsae+OsjFwPtqqm8Ea2cgjgZb0h9JoR9vAQOLZ10YDO/kzssRWpEOAJb8XuXSf7rcHPGwU/ocO8VdXgnUdf/2aaQCcb2C77gEeocLwYI9CGbsM4jSmiabD0vhNxNrwN34G26NphjQ0Z/T9hgQ+iXbiUs0Q7fRC2GPRXS9k/TUfZxbXEmQW6eAwbX1UenHlwux9p9tnebQafNxMkiDgJBmFsxnAC9o+YXQjphA60TX8XxOJ/a46S0loiswesVqmGW/GP1FOgAE3tmeaKuleX5o/W42fYj+syF+o5eZRZCtW1yMAOV8lJsz0LWAiZIov/VN1PQqrWWDOz9a3QO+lWIotVj+EfK7FfyJb40GI899fgqILK4nmo0R69iePGCyL3iRRckvc2b+kK4hQzNcjThSdW3vp9WFHeNNSHA1gWSrGEWNqyho1RF73gUE=]]></content>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{6419AA0C-8A46-4CEC-B8E4-2E55B2F9335B}</guid>
+					<name>Get details for incident in TOPdesk</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.5</version>
+					<versioncomment>Updated version</versioncomment>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>Incident Management</name>
+									<description/>
+									<guid>{94EC8A73-60C7-4511-AABB-1710AFA29A1F}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters identifier="{333BD8E1-C065-4459-8B38-5771CCF7FE63}">
+							<param>
+								<name>Incident Number</name>
+								<type>0</type>
+								<description>TOPdesk incident number(include space as needed).
+Example: M1604 455</description>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="yes">yes</importbb>
+									<schedulejob showprev="yes">yes</schedulejob>
+								</inputtiming>
+							</param>
+							<param>
+								<name>StandardOut</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint/>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{F7093AAC-C148-4726-88C5-026AFD0A6C33}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+								<setparametertrue>no</setparametertrue>
+								<parametertrue>Incident Number</parametertrue>
+								<setparameter>no</setparameter>
+								<parameter>Incident Number</parameter>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{3C2D0AC5-669F-4320-B503-13AE512727BB}</guid><name>TOPdesk administrator</name><description>Please provide the username of a TOPdesk administrator account with API permissions.</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{36EED9A4-9EE9-406F-961E-66FEAABA4D8C}</guid><name>TOPdesk administrator password</name><description>Please provide the password for the TOPdesk administrator account.</description><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task identifier="{17DA5FEE-CBC5-457C-BD0E-14285CA9DA58}" version="11" upgrademinversion="1">
+						<properties>
+							<type>TASKLET</type>
+							<taskflags>41</taskflags>
+							<description>Get details for incident in TOPdesk</description>
+							<enabled>yes</enabled>
+							<comments></comments>
+							<onerror>resume</onerror>
+							<guid>{F7093AAC-C148-4726-88C5-026AFD0A6C33}</guid>
+						</properties>
+						<setup/>
+						<settings>
+							<parameters>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk administrator</name>
+									<value1>^[TOPdesk administrator]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Please provide the username of a TOPdesk administrator account with API permissions.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk administrator password</name>
+									<value1 encrypted="no">^[TOPdesk administrator password]</value1>
+									<value2/>
+									<value3/>
+									<type>5</type>
+									<description>Please provide the password for the TOPdesk administrator account.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk URL</name>
+									<value1>^[TOPdesk URL]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>Incident Number</name>
+									<value1>$[Incident Number]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>TOPdesk incident number(include space as needed).
+Example: M1604 455</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="no" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>Output</name>
+									<value1>calltime;number;short-description;long-description;status;actions</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Specify the output data options separated by semicolon. 
+Example: calltime;number;short-description;long-description;status;actions</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="3" suggestedexposure="1" noinput="yes">
+									<name>StandardOut</name>
+									<value1></value1>
+									<value2/>
+									<value3/>
+									<type>4</type>
+									<description/>
+									<hint/>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+									</inputoptions>
+									<setparameter parse="no">$[StandardOut]</setparameter>
+								</param>
+							</parameters>
+							<content><![CDATA[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]]></content>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{19C3ECFF-7840-4E96-8531-D2E1F7B29FA8}</guid>
+					<name>List incidents per user in TOPdesk</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.3</version>
+					<versioncomment>Updated version</versioncomment>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>Incident Management</name>
+									<description/>
+									<guid>{94EC8A73-60C7-4511-AABB-1710AFA29A1F}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters identifier="{88E88161-2B7B-4F71-BBEC-CAD066ACFDB1}">
+							<param>
+								<name>User e-mail address</name>
+								<type>0</type>
+								<description>Provide the e-mail address of the user to list all open incidents.</description>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="yes">yes</importbb>
+									<schedulejob showprev="yes">yes</schedulejob>
+								</inputtiming>
+							</param>
+							<param>
+								<name>StandardOut</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint/>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>yes</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{7E35DE73-2947-4910-99E4-CA851F1993BE}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{3C2D0AC5-669F-4320-B503-13AE512727BB}</guid><name>TOPdesk administrator</name><description>Please provide the username of a TOPdesk administrator account with API permissions.</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{36EED9A4-9EE9-406F-961E-66FEAABA4D8C}</guid><name>TOPdesk administrator password</name><description>Please provide the password for the TOPdesk administrator account.</description><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task identifier="{12640224-4405-457F-9DF5-326C0DD0CD56}" version="12" upgrademinversion="1">
+						<properties>
+							<type>TASKLET</type>
+							<taskflags>41</taskflags>
+							<description>List incidents per user in TOPdesk</description>
+							<enabled>yes</enabled>
+							<comments></comments>
+							<onerror>resume</onerror>
+							<guid>{7E35DE73-2947-4910-99E4-CA851F1993BE}</guid>
+						</properties>
+						<setup/>
+						<settings>
+							<parameters>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk administrator</name>
+									<value1>^[TOPdesk administrator]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Please provide the username of a TOPdesk administrator account with API permissions.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk administrator password</name>
+									<value1 encrypted="no">^[TOPdesk administrator password]</value1>
+									<value2/>
+									<value3/>
+									<type>5</type>
+									<description>Please provide the password for the TOPdesk administrator account.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk URL</name>
+									<value1>^[TOPdesk URL]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>User e-mail address</name>
+									<value1>$[User e-mail address]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Provide the e-mail address of the user to list all open incidents.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="no" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="3" suggestedexposure="1" noinput="yes">
+									<name>StandardOut</name>
+									<value1></value1>
+									<value2/>
+									<value3/>
+									<type>4</type>
+									<description/>
+									<hint/>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+									</inputoptions>
+									<setparameter parse="no">$[StandardOut]</setparameter>
+								</param>
+							</parameters>
+							<content><![CDATA[cygMXrwd6yOAQr7/hMIggm1SiPHrPhgWFaVEV2k8CV7Z0enObktH/N/8maCBJg0fnUxeRnSTXgtJX9lj96q0x5pHBOwAGNKSKEWKpcASMKxK1Ys5TJowaB4T9FuZKmoJAlIqUsag2+hCyDQAWQk0SmlCAyRYbj8ZaFHVKQ8boyTzezb4E9lQCZp4bpwRbDZUyTkxMcBXyjrNgUjnQhM7EUtpZHqrKQH1yHqGtPioI6m0hVGL/R7QtiIGMhHw20Z7oXuRXRrx55hKCbM29KFFbGu2P8GFB4YQ18DmNX+tRL7jYyXwRESs5v4hT0A9FcaFzokH+NGkIroJyI9K6loL0hEDg2Qd1spKbmKQGl3OcKcXYKTwWtklzc6VRXmRUsNAgCAi+qqYHh5ZYF8zDSpFv8XMDuyT2ZsyI+dDkKizR+fgahcS8zmkFrRTE06x4R0tKlBodEW06+5DkCMSfDcC8O14Q3TdZH6eVbHRGDuR9ca8CrLGn3nsvnLg0RfVGXiBYhKmNoXb8mKdOJD8YCra1Fz2r3NjZsRKgoKk/1IItA0txfpXa/wgJyerr+OMPydM42JKe9vPQPCWkSPB7MvFli6S62l0UxBKKvSO7BMFWA4EJFYVLGsV720ZFzt2QKShim5++h/acyxdVo8W1IYHEqX8JZsC8f7kezPVe1MoWDFEpS5aP6HOMy7oxGUQJ+I5dM/EgwpznRTIsuoEM5+JNUMToRPvNHoD4a3FN3mir1Oae2iwddCrwmyBYqZz2WakLuTKEJcf38aoIdxT3gHepL+U+3EydqeXYklKGU819PkzXiSdnxahw9Uus7A4RZBBIFqoCv4rikHCS3WdkT2sqbBqJ9ZFMkKKDWLaqt2rkICVIeh5YJnTHN/Y1HEvpdpz6J3SmbmcnfMHsj+7HJ9oRHNNrfR6I0AuwRJec7bOeEJIlb2nmE0PZ7UWQj+RyqMIKaMQ/lCarwcqps8rpsgpvP2Kfc4ddDyi+H4CXYKtngYpUe5xcriwUDjb5ncdtk5NCa/RejPxIrdRnKy2HqtivF6D/hMDGb94aqXJRfMcN3J4CmyihK71Da6DwrMXGf+kbnfEcf/n/y20KqzkQ2HaqIgNgECCosXYIffawLvCZMeC+hUcdzm2/UxBPW7loSLTA4AV22sZwKMJFgRN11etQXn1UTRMBOlvgelk1hCjqDuNLFhAXtXYYJDofbR/0tvWRKAPzNoQ0CcYVhQ7rHNd8Mm2MjsIn7W0AzoQyrwc3783mNcVqPzk9gei9M37lOhzSVHBidjFe6rEGqkPym0U3cK4kyMBTHvhb1r9sHdm2RjryHRbZ4ILkqkmP/LVjHxN8N4XD9YNQm4oVrRQsDx1NSV4k8s2Oh4u1NpaqwpAoLJK1KIFE6t6C63eLOrfOVdTFCwwU1reDeTcgT8UwfM9tsVz8kYrSheX6/6J9e8tQOaBKZFFJwSjNfyk+FYIUdmxnraDKW8CW0pHyHW+Uo9DEe6e9UZY0uwAnvlNOy3caO8Yy1wsi/skgJkX+jqjT1oF72elo72H1MNaGbxwJxTYvX7AMC8v1b3OD4ZmUm6PoEUSVu1M0/7ufOmRJEYcVunFTrVdGY3dcKAfCt1qG8CgrJo82oLlH35/oH50Acw1iP70kAEFf6WFCEwIAsrQO4IyXfXFTltWmaprJcwgFl7PYnXPfJhh3051j2LILCFej4Yxqo+3jVx2uqqXdpVGWdA1N5zYUdbggex9CIWk7fUzIbMncU28oMt5ScpLGIzUyHUUT9+IZrZ7NOlHkeU5NdQjEcIRrxBSzvYEtUffs5NfFOivb3Vzk1IKwr3cXhHoL1FvXwt6o1EvETggCn2h8oGs+1NfZIjy+aQUwMhqy8ZoYvbN4YibE50FSSaicnnOvBVFd/olHAcxVzRjAAzkoK5qAfEjXdu/aE0wzqXCNqEmJ/tZEtTph/h4A8KMrGeP7ERWOqghw1H1OAsO/lN7qnrd9c3EfihqPV6vWf9xA+HE0pScCH0oEQNa783Ol5o0l4VjEMSE9oi8ZUXR3sgziGtkdQWNkrRbZ10gRG/LOmQZWAJ2dMaGRcm8TXNTMOSPI6GgsfijFL2/2Y3GJLi8CwMvAhZHFY54yGXBnc8siPvKi0aOhyimGN82OWQY+730Zc8RazdpJGbh4wQA0WVLHW0MKiXp+FXzHiWi/FvhJTk7ZfU4odH6CJhi+FPl9pOHTEazQAW8uOI8Y+e4OwKRpZOJpaieTYZpwh+itYYb/bo3Vxk+wGpSfmFfTgccDOw9u77sLE/+asYV3yhl/0isIP90smc5FY4ji1YwWx+eOWWsKHsjPGg0FbxsOIS6zpTGUXf2jbqg73Qm2GtENAtoORHFOYjuHiuqksrL5g8kqf5om/czftoaZhi6wW4YlnrCncSbzBIBTA+fzasUTFue4UywB5yX0G9GM3Up/PPfjS/Al7YQOtw25fFpHF7lXIOcwcziyt9UpIMGeIEL/+wwYJZRnqrSa1XFjsC+zSETLzJF2/z+kMIvtfdtiHCs97hpjnaxr71PbjoxeEBc9gjhgiByud6fCP4laTngCzut3jxBEKFDnAmW3u9jcKrjtBfO39gy/npsIUtAVy4HMDo6V89WYJ7vEThNypAZnDSo1ymQQk0K+OOi21xsNnxskXRRnBFVxjQXzo1OLgOHL2ePesuQgv45xoFeM6C+jgtuR0wHJnMuJ5HwqGQ5me9JrE8dKgBHitUfOJM/9W+TojzRb0cQZXqNl2GuTcAWs/LH+iSVaIW+wA6HyRR78svbzHODOchnWi7cHL2rP8H3VBChQe4qPU78kKCHgElUykAh8bkSMKv7w2GuVa1ZOo0OxVJ3lrb/jc2DqZpTC7yp0nKndG4qM4d75aszfx+1tA0O559p0kdY/AkvBP2M6BRf0mu69Y/rmCg5TKLIt6Xy3461GVtmIbBNRGdc9dy9ArRZz35Vh7BJHosD0p8Da379o/YzyfY4Ys0uR4nUOjmtcyjlFpk5vUdi0IivDhoCkc+iLaiTKhM5hPucCVnj4QEjtgdkLKUxBv/fIy08IaPknxcPFH8XcqQps1hLmfmkfHkKzS9MF2mLnWm37YktioXiBrHNINH3jK4SznbpJZUBu3/TW4Jx8wU8ViqkYzTc9jfbOCXcVwL8m48Y3vP1EMb4ZgBB6iT1IbO/RWD+sC+Cq4dDxtI0br16TlhattyWlUa4Q6DrCujhM3Xu108tP9YecOrVrWieoUb8GZ9ck77KuQDcc9BN+3SpU2yztsTSXYlGlPQphEK6BZiRfRVGBSPn3D00E3ETbcDvMfo7amf/jO5DTpKjcgDqFcb8tR/16vkJ95WTu5UUJrJw86+qjYq5cOjmF8Q7FyLLq9stM9xZUxxOvkhgEKSWcMim9GTZdqyepfIwRtsJqJ6xmxSeOmlc0z3b97tRPO0Y71GnTMfwH4Z6cbJN0UXBZAXqEtyaIqKe4rKvG8r/tnl6PO6w1C490EMnC3wXOCI3ZY6Giw6tYeelmBsKPQsi5n8J3TMKFaUPrsMXTFLqwb9w+glDKQpaeSHCy9XBfFwC2+SUglXqYsq07XW5Nr5JVuaX0mujKwJqWD6FtD6KEtQMQe+icInQGyt5ps4rqrmG/ODEdj94FOexJ6DfVpjt3CXED8W9Xg8tZj1ShQ7zybZmjdoXcFGPF0YWUPYBD32hDJ9Q23MHZzk2hKumx2jYQlNIzKuiXYkMYAE7x90BguF/2ahUR5FGjvxXgPtYLE0IBWsTgHh8NJzH47C6EYVPHkMLqtNmgLxYkxhaHdKU2+ylWmkSS7vz25p6tAtiJwWkrP6ZWkW59o6iljiXrVJ/vXCm2JWH7wawKOR1M3c2TB0l/la/E/4PFij8hWdcPCo2FZAZU5Lm4dJ8SGhA9Sd6I94VGPdWhY2V2h+qEQXHxG748Ovja9MEZxB7kqsgiyAMkmPUqmEn9gxTaNu5MrbuOb3J3z64gDSNE1RIX/h1TdG18yA10N9nScZTCLoOAnoL8ZwQAXASL3W6wZTqObqujphJPHlRL5GipGbJtWDOk5OAxCgcrEX8EcMWH5A8YVfgeaF2Br2HTfcrTXFmxUJD3QBa5E+nCA7l/VojbW8cqoYlNGYWX3ERVbNejDye4qHvHcvxPIT4YMCXsRTNuZyEDUeziCrHH484x0EZ820BimCe7axx/vI7t4EGsJeIz+RpUFQIg7aooUJgwPS4ZJiqY11d2PskeU7YIbBkYCawgcdnFIXdrzL0Epdeq2fP9siCnTs94kt1sL8gcmO/9IIHLuTvuweL/trRT7MBTPCdWEFDEr5nJmZ97FRsFHvqbZ50dQXTGTm8bfKwQkOHvSxar6BgiggVOlgfiwCemkQbIvCkeRNUXpz08fMtvRDWxr6xlc3Q0124nh3/kf9m9S9/T2HHkakw6+JmOGVe5Xx4O4PGzn4ZPSaR7JGMlv/AEgWGDSjXY5YAIyCqsCS/z+13Dcc0zbBkM3Iquxga8roxXPJh6pTCK8zqaVJh+XggBSGYN1u3k9y0J2PH+nyr5BNFlT1OsNWlPhslbfgWRN48MyuiogHeWSdeDZ0udJdwa33Z1QtNq3OjcMSFnN4hJ4P0TIaS3KrZfRn4zpfrru7FSWZNTDtIh935GR86dTNgj0qwBHfKaNFGegmVsUabqg7pHZAqZCZKAX7sn9nOxIQpP9HBy0Th46HrpB3ubrDdnyHm3KfLbCV+NYVHQo11Ua3z+8gpSvS4GqnVsfx9/haeL8lyLhZHOGqpkmjmC9AhoBEqWjyCyKDHJVxlIEVWM/1GGb35HnP+3EMdfmDZBOhJBUk2BiRE85+CQL+gSQDqwSELjF781/vV1XWfgSLdk7JR7pLv9CmLbT+kUxdbcY/1LT8mhuLiVDIzD1UBEpDFLGks9zjdWxBN/F5AVnKBwb6xP/NHx+0p+Pa/Bk7CoPFzGkH5shka5UZfgYvJx396qKHu+woiKAeE+J/iKbAbS7yY4ndvuR/94Y0Yc2U3UVOI09WYGxh5G09V0KfYbPnUlH0GpTvKBT3aC57FIUV9Y4CN1nLuKYAPRyJVEKY5ALleZGGJWYCY5pNLlTMzoGpowysleK4GJCsL5e5CzAE3pKy9+qjHoFxiIEMOhViWnuhvqoQ/nXVKCbmfKM5PN3x53uxm/6MUlKiThewy1R2+DPTipsIbYpNxdrmskMCd7pRB0EaqPFy5bFf8g6e65CtK79jsBwBzihnpuxi0n1GOnkXmOZZVAsRCSQa77uLlXf7hzkgQxTEuBP/G1NDGQKkjAq3H1jJxEEV4VuP1W+WGu6GmVLWC+n7zKPCHEG3cT6bHWjV/gT3fcSO+j9CxeZAd+T2gu8Fsst6DYyuWwYNGnvZueJhKw5nHZEEedxOa5QP3LFkP3I8jTHTVZ7FBPTZM6FoGirfqEZzPtg+jyg+1PZqmSUWJvi/4lEybgI6/JQGJj9bLYVLRfguGev69PlG53U68pQOhRGyJ3V6F14iQa0PzcnsxF83ybSQWmfatAxFxq7L51DXHIsmn/fDG8RzPle8c+/eZue6mha41VDgz9UT+DJimR/9AH/StkTdLBuePSqhaNB7+x3hByyonPpTIx43MlZyX2JXr0zC3UIzmwOyZ1AfxhE/5vKW7M1eb1erwtdZ1rLzG6kd9g7fakqauSDv7s9ZSNVD2Ufa8Z1ZmeN3LFzuD18BZrFCZvp/hY5r6SLLdlaUB/x3YXB4JGZyAAgUpF8uY0mR9pDlqPJDZWyTdA18+xEYHRKn3FSPTWlgMZnj5XUYYTmOD2NEcqOzF7B6Qw+Jv/TrJjQcenvRbzUqQF9pPl7EP+kLTfdI+QqH17ktOTiukIKYnUKENDEFR5LxkgEUIhmxlotBGeaZzlXkRChxg24R6+/zaTDZzhqa050Xy7tagPOHUyEygg50lc2Fwk1F+jkgqq3pyMwdMeaJp8rVxSc+zYbDvWymGeu3Nllu/AZrRHfvrjvhgodOu5yXj/oW/S+8wAm5rFgAcZqHbeJGKyF2hvPgZESEDe3dBbmTd5YGpw75zuxux2j+GEdArAwWqcQso5gwTUgf20j6a64zjhlU+EZX57PBFQW47a6+kJeADwRMX3ZJj+cXDbM/3ckkNVPQkMlUnnG2zIAnxTUXEBgj6h7r2ozZWhB7eDpSnfEGm3PJNWwa8Cwi2zFPyzNxOBJJN95liJCPuTEA3gF9WOiS62PBGwvMJBfuSof8+wCFVgPIR5EjqprkO0pQUNPlcqExleGjxTMw1s4jEE6j7PBBEdXpxzdgDbtCpZX4GdYygNlWFK5MFm9tbtQPBzFh/j1vNqTvh8YoXMDhLY1CDzDcFUfj0n3SEj/PaB4VaKtbaM2hWA76Vggvo5xafRSI5DpvgScNHF9OljBSt827WW/K0K0/Yob1lrIrYaZGunxE6GIzBr3Fo6mTCcvvqawZI5qq4FETi+FXZX1ql2SKWPzoWqz9h1WzkC5JmaChrQoLgtu/n6/bWosm7A+5sV405fraGilBFHStOiZA2Azd6s8GcH30jGhBHRL+wAIw0IKZdhtNg5f2GtdlcNjlm4VumMe2v9qch8lHRcUU7Kb0q1JndHyNcOOO5nCzQn6YcKo4dg1VyqS/xodMjXZQCVQX5KfgAuLlg5KLQXhWJFH5nSIcIiZR+ooCDvU3o64AH4po61tce/YjX+mvqfOquS6C/xxGL/K3nejZUwWvefFOH2+RYVaRYnaBXHA4xHDuHZLV7Qhh/XaTjbGQOR3qcBBxVhsoPfIUzHdDaRyVRwjM4brWv1qJ13lrfePVPiBI792b0YBFyD6a6x9rHbUc41YkrOlBOLsU8Qe3onPAZik5E81ahFeePeie5q1P/Q6KoDDR2FsQ2zWzCARAYORWUmiTX9tA5OltXNV5lU1FiRRYsXadmGVhCTEKrsVEMWh9t9HE3z2GSImXESbe69lHijz+L/xVtyMYCQ+h9RZD4AQUxQPKqgBejLk6MuiXheO+mdyF+9pttWKvOmQLSOLMGnaYXbF5oEoFj3xwhfAoaYx5HTpc3B+ijiTMvScWr/rrNdt4u6Ny9rZPVSTgeQkGv/WiKWvqvTNF6S78L3/ZNNhH6Re9vEJbuOhRrG+2INePNdHwZQeHMj3/1ZzLbBkQ5oJXxIAQJIb9PcRtdCq9Wv47HEcHacQsH8TqL2Ni40MnWeoybu83onQJKbzRtFcfy2WczozrMp8iaQDlZG03x4Dr856hK7oOF1FIMbx7HgSSOKCpQrH8jde1dmRN3w1nGkNDDChLtxkNnQQwvFpAveiIDGs2jSfgSawOyzXfpxG6ntmnzOGd17UKs70FK9V3sjmfw64UFV7tT6AseCrpQTHWWiYoDjVC9so1tKfeN97GRxFohGUR8kKUOrx7Xk9+ZQjfvpkL89gBSy3cPgE08c6pCMH21rTLBkNmom3O5JFyCL2MQKH4gVYQkh58=]]></content>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{05C62B1D-F5CA-48B5-9415-DE8C18AA7506}</guid>
+					<name>Update an incident in TOPdesk</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.2</version>
+					<versioncomment>Updated version</versioncomment>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>Incident Management</name>
+									<description/>
+									<guid>{94EC8A73-60C7-4511-AABB-1710AFA29A1F}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters identifier="{1F0914CB-3694-4386-92DA-AF518EBF8ADF}">
+							<param>
+								<name>Incident configuration update</name>
+								<type>4</type>
+								<description>Use a line separated envelope to specify the data that will be send to TOPdesk.
+Please see Online Help for more information.</description>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="yes">yes</importbb>
+									<schedulejob showprev="yes">yes</schedulejob>
+								</inputtiming>
+							</param>
+							<param>
+								<name>Incident number</name>
+								<type>0</type>
+								<description>An existing TOPdesk  incident number (including spaces).</description>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="yes">yes</importbb>
+									<schedulejob showprev="yes">yes</schedulejob>
+								</inputtiming>
+							</param>
+							<param>
+								<name>StandardOut</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint/>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{5361A5B1-91B0-4828-A825-2F9852B1D03D}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{3C2D0AC5-669F-4320-B503-13AE512727BB}</guid><name>TOPdesk administrator</name><description>Please provide the username of a TOPdesk administrator account with API permissions.</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{36EED9A4-9EE9-406F-961E-66FEAABA4D8C}</guid><name>TOPdesk administrator password</name><description>Please provide the password for the TOPdesk administrator account.</description><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task identifier="{EE45B52F-DC31-44B9-96E9-972E66084053}" version="12" upgrademinversion="1">
+						<properties>
+							<type>TASKLET</type>
+							<taskflags>41</taskflags>
+							<description>Update an incident in TOPdesk</description>
+							<enabled>yes</enabled>
+							<comments></comments>
+							<onerror>resume</onerror>
+							<guid>{5361A5B1-91B0-4828-A825-2F9852B1D03D}</guid>
+						</properties>
+						<setup/>
+						<settings>
+							<parameters>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk administrator</name>
+									<value1>^[TOPdesk administrator]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Please provide the username of a TOPdesk administrator account with API permissions.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk administrator password</name>
+									<value1 encrypted="no">^[TOPdesk administrator password]</value1>
+									<value2/>
+									<value3/>
+									<type>5</type>
+									<description>Please provide the password for the TOPdesk administrator account.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>TOPdesk URL</name>
+									<value1>^[TOPdesk URL]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>Incident number</name>
+									<value1>$[Incident number]</value1>
+									<value2/>
+									<value3/>
+									<type>0</type>
+									<description>An existing TOPdesk  incident number (including spaces).</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="no" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+										<validation>no</validation>
+									</inputoptions>
+								</param>
+								<param exposure="2" suggestedexposure="2">
+									<name>Incident configuration update</name>
+									<value1>$[Incident configuration update]</value1>
+									<value2/>
+									<value3/>
+									<type>4</type>
+									<description>Use a line separated envelope to specify the data that will be send to TOPdesk.
+Please see Online Help for more information.</description>
+									<hint>Please provide the necessary input</hint>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="no" eraseprev="no">yes</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>yes</force>
+										<required>no</required>
+									</inputoptions>
+								</param>
+								<param exposure="3" suggestedexposure="1" noinput="yes">
+									<name>StandardOut</name>
+									<value1></value1>
+									<value2/>
+									<value3/>
+									<type>4</type>
+									<description/>
+									<hint/>
+									<selection/>
+									<inputtiming>
+										<importbb showprev="no" eraseprev="no">no</importbb>
+										<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+									</inputtiming>
+									<inputoptions>
+										<confirm>no</confirm>
+										<force>no</force>
+										<required>no</required>
+									</inputoptions>
+									<setparameter parse="no">$[StandardOut]</setparameter>
+								</param>
+							</parameters>
+							<content><![CDATA[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]]></content>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{C2AFD93B-A247-4027-86F1-AE92EFB9D550}</guid>
+					<name>Duplicate of TOPdesk Add User</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.0</version>
+					<versioncomment>backup of working module</versioncomment>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>User Management</name>
+									<description/>
+									<guid>{BDB688A1-3112-4375-9E09-F3645D4A90BB}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters>
+							<param>
+								<name>LastName</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the new user's last name</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>First Name</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the new user's first name</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>EmployeeNumber</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the new user's employee ID</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Network Login Name</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the new user's network ID</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>yes</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Branch ID</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the ID associated with the new user's branch</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk Portal login name</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the TOPdesk login name for the new user</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>password</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide an initial password for the user</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Results</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Users Email</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Job Title</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Topdesk Admin</name>
+								<value1>^[TOPdesk administrator]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk Admin Password</name>
+								<value1 encrypted="no">^[TOPdesk administrator password]</value1>
+								<value2/>
+								<value3/>
+								<type>5</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk URL</name>
+								<value1>^[TOPdesk URL]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>DepartmentID</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{17823DC0-6E4D-4385-B6E2-0E61E8C6DEF4}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{3C2D0AC5-669F-4320-B503-13AE512727BB}</guid><name>TOPdesk administrator</name><description>Please provide the username of a TOPdesk administrator account with API permissions.</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{36EED9A4-9EE9-406F-961E-66FEAABA4D8C}</guid><name>TOPdesk administrator password</name><description>Please provide the password for the TOPdesk administrator account.</description><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task>
+						<properties>
+							<type>PWRSHELL</type>
+							<guid>{17823DC0-6E4D-4385-B6E2-0E61E8C6DEF4}</guid>
+							<description>Execute Windows PowerShell Script</description>
+							<enabled>yes</enabled>
+							<comments/>
+							<onerror>fail</onerror>
+						</properties>
+						<settings>
+							<username/>
+							<password encrypted="yes"/>
+							<usescript>yes</usescript>
+							<source>#basic script to query TOPdesk instance for custoemr specific incident values. 
+#Use when building RES ONE Service Store services to quickly have values on hand.
+
+ add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+        return true;
+    }
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+#User parameters
+$surName = "$[LastName]"
+$firstName = "$[First Name]"
+$employeeNumber = "$[EmployeeNumber]"
+$tempName = "$[Network Login Name]"
+$networkLoginName = $tempName.ToLower()
+$branch = "$[Branch ID]"
+$tasLoginName = "$[TOPdesk Portal login name]"
+$password = "$[password]"
+$email = '$[Users Email]'
+$jobtitle = '$[Job Title]'
+$DepartmentID = "$[DepartmentID]"
+
+#instance paramters
+$admin = "$[Topdesk Admin]"
+$Adminpwd = "$[TOPdesk Admin Password]"
+$TOPdeskUrl = "$[TOPdesk URL]"
+$token
+$baseUri = $TOPdeskUrl+"/tas/api"
+
+$token = Invoke-RestMethod -Method Get -Uri ($baseUri+"/login/operator") -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($admin+":"+$Adminpwd ))}
+
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Authorization", "TOKEN id=`"$token`"")
+
+$output = ""
+$results = ""
+
+$body = @"
+
+{
+   "surName" : "$surName",
+   "firstName" : "$firstName",
+   "prefixes" : "",
+   "employeeNumber" : "$employeeNumber",
+   "networkLoginName" : "$networkLoginName",
+   "email" : "$email",
+   "branch" :  {
+         "id": "$branch"
+   },
+   "department" : {
+         "id": "$DepartmentID"
+   }, 
+   "tasLoginName" : "$tasLoginName",
+   "password" : "$password",
+   "showBudgetholder" : true,
+   "showDepartment" : true,
+   "showBranch" : false,
+   "showSubsidiaries" : false,
+   "manager" : null,
+   "isManager" : false,
+   "jobTitle" : "$jobtitle",
+   "authorizeAll" : false,
+   "authorizeDepartment" : true,
+   "authorizeBudgetHolder" : false,
+   "authorizeBranch" : false,
+   "authorizeSubsidiaryBranches" : false	
+}
+"@
+
+
+
+$results = Invoke-RestMethod -Method Post -Uri ($baseUri+"/persons") -Headers $headers -Body $body -ContentType 'application/json'
+
+$results.id</source>
+							<scriptext>ps1</scriptext>
+							<outputwidth>256</outputwidth>
+							<timeout>10</timeout>
+							<terminate>no</terminate>
+							<setexitcodeparameter parse="no">$[Results]</setexitcodeparameter>
+							<snapins/>
+							<overrideexecutionpolicy>no</overrideexecutionpolicy>
+							<usex86psonx64>no</usex86psonx64>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{D4DBD4BE-EE96-4CE5-9FE3-9CC0EFA60551}</guid>
+					<name>Enable / Disable User Account</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.3</version>
+					<versioncomment/>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>User Management</name>
+									<description/>
+									<guid>{BDB688A1-3112-4375-9E09-F3645D4A90BB}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters>
+							<param>
+								<name>operation</name>
+								<value1>unarchive</value1>
+								<value2>archive;unarchive</value2>
+								<value3>archive;unarchive</value3>
+								<type>1</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>yes</required>
+								</inputoptions>
+							</param>
+							<param>
+								<name>AdminName</name>
+								<value1>^[TOPdesk administrator]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Admin Password</name>
+								<value1 encrypted="no">^[TOPdesk administrator password]</value1>
+								<value2/>
+								<value3/>
+								<type>5</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk URL</name>
+								<value1>^[TOPdesk URL]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>User email</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{1E784452-99D9-47AA-80FF-05680B8D9C26}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{3C2D0AC5-669F-4320-B503-13AE512727BB}</guid><name>TOPdesk administrator</name><description>Please provide the username of a TOPdesk administrator account with API permissions.</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{36EED9A4-9EE9-406F-961E-66FEAABA4D8C}</guid><name>TOPdesk administrator password</name><description>Please provide the password for the TOPdesk administrator account.</description><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task>
+						<properties>
+							<type>PWRSHELL</type>
+							<guid>{1E784452-99D9-47AA-80FF-05680B8D9C26}</guid>
+							<description>Execute Windows PowerShell Script</description>
+							<enabled>yes</enabled>
+							<comments/>
+							<onerror>fail</onerror>
+						</properties>
+						<settings>
+							<username/>
+							<password encrypted="yes"/>
+							<usescript>yes</usescript>
+							<source>#basic script to query TOPdesk instance for custoemr specific incident values. 
+#Use when building RES ONE Service Store services to quickly have values on hand.
+
+ add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+        return true;
+    }
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+
+$AdminName = "$[AdminName]"
+$AdminPWD = "$[Admin Password]"
+$TOPdeskUrl = "$[TOPdesk URL]"
+$token
+$baseUri = $TOPdeskUrl+"/tas/api"
+
+#$lastname = ''
+#$firstname = 'Noah'
+$email = '$[User email]'
+
+
+$results = ''
+$archived = 'false'
+$operation = '$[operation]'
+
+#Still need to build a task to pull archive reasons
+#our current instance has list of reasons but they are in
+#Dutch. 
+$archive_reason = "64d2d84d-de01-5bc4-bf4a-08ec61e20d1e"
+
+
+$token = Invoke-RestMethod -Method Get -Uri ($baseUri+"/login/operator") -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($AdminName+":"+$AdminPWD ))}
+
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Authorization", "TOKEN id=`"$token`"")
+
+#need to set the search to look for currently archived users
+if ($operation -eq 'unarchive'){
+    $archived = 'true'
+    }
+
+$results = Invoke-RestMethod -Method Get -Uri ($baseUri+"/persons?email="+$email+"&amp;archived="+$archived) -Headers $headers -ContentType 'application/json'
+
+if ($results.id){
+    Write-Host $results.id 
+}else{
+    Write-Host "Could not find a user with the email: "$email
+    exit
+}
+
+$UserID = $results.id
+
+$body = @"
+{
+   "id" : "$archive_reason"
+}
+"@
+
+
+$results = Invoke-RestMethod -Method Put -Uri ($baseUri+"/persons/id/"+$UserID+"/"+$operation) -Headers $headers -Body $body -ContentType 'application/json'</source>
+							<scriptext>ps1</scriptext>
+							<outputwidth>80</outputwidth>
+							<timeout>10</timeout>
+							<terminate>no</terminate>
+							<snapins/>
+							<overrideexecutionpolicy>no</overrideexecutionpolicy>
+							<usex86psonx64>no</usex86psonx64>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{09AF577F-3192-4C43-80E5-7DCDC0C0A9D2}</guid>
+					<name>Find TOPdesk Branch ID</name>
+					<enabled>yes</enabled>
+					<description>Retrieve the location ID asscoated witht he office/location name.
+This should be moved into a attribute of the Servce Store org structure.</description>
+					<version>1.0.11</version>
+					<versioncomment/>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>User Management</name>
+									<description/>
+									<guid>{BDB688A1-3112-4375-9E09-F3645D4A90BB}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters>
+							<param>
+								<name>TOPdesk Admin</name>
+								<value1>^[TOPdesk administrator]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk Admin Password</name>
+								<value1 encrypted="no">^[TOPdesk administrator password]</value1>
+								<value2/>
+								<value3/>
+								<type>5</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk URL</name>
+								<value1>^[TOPdesk URL]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Branch</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Branch ID</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{47B84A8E-D9B9-4A1D-ABB2-26CC81DABD73}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{3C2D0AC5-669F-4320-B503-13AE512727BB}</guid><name>TOPdesk administrator</name><description>Please provide the username of a TOPdesk administrator account with API permissions.</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{36EED9A4-9EE9-406F-961E-66FEAABA4D8C}</guid><name>TOPdesk administrator password</name><description>Please provide the password for the TOPdesk administrator account.</description><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task>
+						<properties>
+							<type>PWRSHELL</type>
+							<guid>{47B84A8E-D9B9-4A1D-ABB2-26CC81DABD73}</guid>
+							<description>Execute Windows PowerShell Script</description>
+							<enabled>yes</enabled>
+							<comments/>
+							<onerror>fail</onerror>
+						</properties>
+						<settings>
+							<username/>
+							<password encrypted="yes"/>
+							<usescript>yes</usescript>
+							<source>#basic script to query TOPdesk find loction for user.
+
+ add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+        return true;
+    }
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+$Admin = "$[TOPdesk Admin]"
+$AdminPWD = "$[TOPdesk Admin Password]"
+$TOPdeskUrl = "$[TOPdesk URL]"
+$token
+$baseUri = $TOPdeskUrl+"/tas/api"
+
+
+$BranchName = '$[Branch]'
+$BranchID
+
+$token = Invoke-RestMethod -Method Get -Uri ($baseUri+"/login/operator") -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($Admin+":"+$AdminPWD ))}
+
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Authorization", "TOKEN id=`"$token`"")
+
+$results =""
+ 
+$results = Invoke-RestMethod -Method Get -Uri ($baseUri+"/branches") -Headers $headers -ContentType 'application/json'
+#$results = Invoke-RestMethod -Method Get -Uri ($baseUri+"/departments") -Headers $headers -ContentType 'application/json'
+
+
+foreach($result in $results) {
+    if ($result.name -eq $BranchName) {
+   # Write-Host 'Found match for$BranchName '
+        $BranchID = $result.id
+     #   break
+        }
+
+}
+
+if ($userlocationID -eq ''){
+    Write-Host 'Could not retrieve Branch'
+    }
+ 
+
+$BranchID</source>
+							<scriptext>ps1</scriptext>
+							<outputwidth>80</outputwidth>
+							<timeout>10</timeout>
+							<terminate>no</terminate>
+							<setoutparameter parse="no">$[Branch ID]</setoutparameter>
+							<snapins/>
+							<overrideexecutionpolicy>no</overrideexecutionpolicy>
+							<usex86psonx64>no</usex86psonx64>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{FEBF5DFC-BA76-413A-A973-F337108F21C3}</guid>
+					<name>Find TOPdesk Department ID</name>
+					<enabled>yes</enabled>
+					<description>Retrieve the location ID asscoated witht he office/location name.
+This should be moved into a attribute of the Servce Store org structure.</description>
+					<version>1.0.5</version>
+					<versioncomment/>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>User Management</name>
+									<description/>
+									<guid>{BDB688A1-3112-4375-9E09-F3645D4A90BB}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters>
+							<param>
+								<name>TOPdesk Admin</name>
+								<value1>^[TOPdesk administrator]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk Admin Password</name>
+								<value1 encrypted="no">^[TOPdesk administrator password]</value1>
+								<value2/>
+								<value3/>
+								<type>5</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk URL</name>
+								<value1>^[TOPdesk URL]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Department</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>DepartmentID</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{39885AE4-9DF8-4E62-A0A7-E0BEDD5E1CAD}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{3C2D0AC5-669F-4320-B503-13AE512727BB}</guid><name>TOPdesk administrator</name><description>Please provide the username of a TOPdesk administrator account with API permissions.</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{36EED9A4-9EE9-406F-961E-66FEAABA4D8C}</guid><name>TOPdesk administrator password</name><description>Please provide the password for the TOPdesk administrator account.</description><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task>
+						<properties>
+							<type>PWRSHELL</type>
+							<guid>{39885AE4-9DF8-4E62-A0A7-E0BEDD5E1CAD}</guid>
+							<description>Execute Windows PowerShell Script</description>
+							<enabled>yes</enabled>
+							<comments/>
+							<onerror>fail</onerror>
+						</properties>
+						<settings>
+							<username/>
+							<password encrypted="yes"/>
+							<usescript>yes</usescript>
+							<source>#basic script to query TOPdesk find loction for user.
+
+ add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+        return true;
+    }
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+$Admin = "$[TOPdesk Admin]"
+$AdminPWD = "$[TOPdesk Admin Password]"
+$TOPdeskUrl = "$[TOPdesk URL]"
+$token
+$baseUri = $TOPdeskUrl+"/tas/api"
+
+
+$DepartmentName = '$[Department]'
+$DepartmentID = ''
+
+$token = Invoke-RestMethod -Method Get -Uri ($baseUri+"/login/operator") -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($Admin+":"+$AdminPWD ))}
+
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Authorization", "TOKEN id=`"$token`"")
+
+$results =""
+ 
+$results = Invoke-RestMethod -Method Get -Uri ($baseUri+"/departments") -Headers $headers -ContentType 'application/json'
+
+
+foreach($result in $results) {
+    if ($result.name -eq $DepartmentName){
+    #Write-Host 'Found match for Department Name'
+        $DepartmentID = $result.id
+       # break
+        }
+
+}
+
+if ($DepartmentID -eq ''){
+    Write-Host 'Could not retrieve Department ID'
+    }
+ 
+
+$DepartmentID</source>
+							<scriptext>ps1</scriptext>
+							<outputwidth>80</outputwidth>
+							<timeout>10</timeout>
+							<terminate>no</terminate>
+							<setoutparameter parse="no">$[DepartmentID]</setoutparameter>
+							<snapins/>
+							<overrideexecutionpolicy>no</overrideexecutionpolicy>
+							<usex86psonx64>no</usex86psonx64>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{6D267A53-41BB-4996-8C84-3B0ED3184CE0}</guid>
+					<name>Set TOPdesk User Password</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.1</version>
+					<versioncomment/>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>User Management</name>
+									<description/>
+									<guid>{BDB688A1-3112-4375-9E09-F3645D4A90BB}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters>
+							<param>
+								<name>TOPdeskAdmin</name>
+								<value1>^[TOPdesk administrator]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdeskAdminPWD</name>
+								<value1>^[TOPdesk administrator password]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdeskURL</name>
+								<value1>^[TOPdesk URL]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Users Email</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>New Password</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{C9903C09-A750-4350-9098-4655DACC08C6}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{3C2D0AC5-669F-4320-B503-13AE512727BB}</guid><name>TOPdesk administrator</name><description>Please provide the username of a TOPdesk administrator account with API permissions.</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{36EED9A4-9EE9-406F-961E-66FEAABA4D8C}</guid><name>TOPdesk administrator password</name><description>Please provide the password for the TOPdesk administrator account.</description><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task>
+						<properties>
+							<type>PWRSHELL</type>
+							<guid>{C9903C09-A750-4350-9098-4655DACC08C6}</guid>
+							<description>Execute Windows PowerShell Script</description>
+							<enabled>yes</enabled>
+							<comments/>
+							<onerror>fail</onerror>
+						</properties>
+						<settings>
+							<username/>
+							<password encrypted="yes"/>
+							<usescript>yes</usescript>
+							<source>#basic script to query TOPdesk instance for custoemr specific incident values. 
+#Use when building RES ONE Service Store services to quickly have values on hand.
+
+ add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+        return true;
+    }
+}
+"@
+
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+$AdminName = "$[TOPdeskAdmin]"
+$AdminPWD = "$[TOPdeskAdminPWD]"
+$TOPdeskUrl = "$[TOPdeskURL]"
+$token
+$baseUri = $TOPdeskUrl+"/tas/api"
+
+
+$userpassword = '$[New Password]'
+$email = '$[Users Email]'
+
+$token = Invoke-RestMethod -Method Get -Uri ($baseUri+"/login/operator") -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($AdminName+":"+$AdminPWD ))}
+
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Authorization", "TOKEN id=`"$token`"")
+
+
+$results = ''
+$results = Invoke-RestMethod -Method Get -Uri ($baseUri+"/persons?email="+$email) -Headers $headers -ContentType 'application/json'
+
+if ($results.id){
+    $UserID = $results.id
+    $surName = $results.surName
+    $branchID = $results.branch.id
+}else{
+    Write-Host "Could not find a user with the email: "$email
+    exit
+}
+
+$body = @"
+{
+   "surName"  : "$surName",
+   "password" : "$userpassword",
+   "branch" :  {
+         "id": "$branchID"
+   }
+}
+"@
+
+$results = Invoke-RestMethod -Method PUT -Uri ($baseUri+"/persons/id/"+ $UserID ) -Headers $headers -Body $body -ContentType 'application/json'
+
+</source>
+							<scriptext>ps1</scriptext>
+							<outputwidth>80</outputwidth>
+							<timeout>10</timeout>
+							<terminate>no</terminate>
+							<snapins/>
+							<overrideexecutionpolicy>no</overrideexecutionpolicy>
+							<usex86psonx64>no</usex86psonx64>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{28F0205C-4B30-464F-A078-29DCED248B9D}</guid>
+					<name>TOPdesk Add User</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.19</version>
+					<versioncomment/>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>User Management</name>
+									<description/>
+									<guid>{BDB688A1-3112-4375-9E09-F3645D4A90BB}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters>
+							<param>
+								<name>LastName</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the new user's last name</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>First Name</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the new user's first name</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>EmployeeNumber</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the new user's employee ID</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Network Login Name</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the new user's network ID</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>yes</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Branch ID</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the ID associated with the new user's branch</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk Portal login name</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please enter the TOPdesk login name for the new user</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>password</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide an initial password for the user</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Results</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Users Email</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Job Title</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>Topdesk Admin</name>
+								<value1>^[TOPdesk administrator]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk Admin Password</name>
+								<value1 encrypted="no">^[TOPdesk administrator password]</value1>
+								<value2/>
+								<value3/>
+								<type>5</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+								</inputoptions>
+							</param>
+							<param>
+								<name>TOPdesk URL</name>
+								<value1>^[TOPdesk URL]</value1>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>DepartmentID</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="yes" eraseprev="no">yes</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>no</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{93C42F92-0E67-449E-92CF-B9A92480560C}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{3C2D0AC5-669F-4320-B503-13AE512727BB}</guid><name>TOPdesk administrator</name><description>Please provide the username of a TOPdesk administrator account with API permissions.</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{36EED9A4-9EE9-406F-961E-66FEAABA4D8C}</guid><name>TOPdesk administrator password</name><description>Please provide the password for the TOPdesk administrator account.</description><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{4D63FF02-A26D-405E-A659-24191211FFB3}</guid><name>TOPdesk URL</name><description>Please provide the TOPdesk server address.
+Example: https://172.128.11.110
+Example: https://topdesk.mycorpserv.com
+https://partnerships.topdesk.net
+https://ressoftware.topdesk.net</description><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task>
+						<properties>
+							<type>PWRSHELL</type>
+							<guid>{93C42F92-0E67-449E-92CF-B9A92480560C}</guid>
+							<description>Execute Windows PowerShell Script</description>
+							<enabled>yes</enabled>
+							<comments/>
+							<onerror>fail</onerror>
+						</properties>
+						<settings>
+							<username/>
+							<password encrypted="yes"/>
+							<usescript>yes</usescript>
+							<source>#basic script to query TOPdesk instance for custoemr specific incident values. 
+#Use when building RES ONE Service Store services to quickly have values on hand.
+
+ add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+        return true;
+    }
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+#User parameters
+$surName = "$[LastName]"
+$firstName = "$[First Name]"
+$employeeNumber = "$[EmployeeNumber]"
+$tempName = "$[Network Login Name]"
+$networkLoginName = $tempName.ToLower()
+$branch = "$[Branch ID]"
+$tasLoginName = "$[TOPdesk Portal login name]"
+$password = "$[password]"
+$email = '$[Users Email]'
+$jobtitle = '$[Job Title]'
+$DepartmentID = "$[DepartmentID]"
+## Test Block to trim newline
+$tasLoginName = $tasLoginName -replace "`t|`n|`r",""
+$branch = $branch -replace "`t|`n|`r",""
+$DepartmentID = $DepartmentID -replace "`t|`n|`r",""
+##
+#instance paramters
+$admin = "$[Topdesk Admin]"
+$Adminpwd = "$[TOPdesk Admin Password]"
+$TOPdeskUrl = "$[TOPdesk URL]"
+$token
+$baseUri = $TOPdeskUrl+"/tas/api"
+
+$token = Invoke-RestMethod -Method Get -Uri ($baseUri+"/login/operator") -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($admin+":"+$Adminpwd ))}
+
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Authorization", "TOKEN id=`"$token`"")
+
+$output = ""
+$results = ""
+
+$body = @"
+
+{
+   "surName" : "$surName",
+   "firstName" : "$firstName",
+   "prefixes" : "",
+   "employeeNumber" : "$employeeNumber",
+   "networkLoginName" : "$networkLoginName",
+   "email" : "$email",
+   "branch" :  {
+         "id": "$branch"
+   },
+   "department" : {
+         "id": "$DepartmentID"
+   }, 
+   "tasLoginName" : "$tasLoginName",
+   "password" : "$password",
+   "showBudgetholder" : true,
+   "showDepartment" : true,
+   "showBranch" : false,
+   "showSubsidiaries" : false,
+   "manager" : null,
+   "isManager" : false,
+   "jobTitle" : "$jobtitle",
+   "authorizeAll" : false,
+   "authorizeDepartment" : true,
+   "authorizeBudgetHolder" : false,
+   "authorizeBranch" : false,
+   "authorizeSubsidiaryBranches" : false	
+}
+"@
+
+
+
+$results = Invoke-RestMethod -Method Post -Uri ($baseUri+"/persons") -Headers $headers -Body $body -ContentType 'application/json'
+
+$results.id</source>
+							<scriptext>ps1</scriptext>
+							<outputwidth>256</outputwidth>
+							<timeout>10</timeout>
+							<terminate>no</terminate>
+							<setexitcodeparameter parse="no">$[Results]</setexitcodeparameter>
+							<snapins/>
+							<overrideexecutionpolicy>no</overrideexecutionpolicy>
+							<usex86psonx64>no</usex86psonx64>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{400A4FA3-02C6-4732-92F5-6126DCE99998}</guid>
+					<name>TOPdesk Branch List</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.2</version>
+					<versioncomment/>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>Utility Tasks</name>
+									<description/>
+									<guid>{F4BA40AF-62A9-46BF-8844-33A748629D93}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters>
+							<param>
+								<name>Results</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>yes</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>ExitCode</name>
+								<type>0</type>
+								<description/>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="yes">no</importbb>
+									<schedulejob showprev="yes">no</schedulejob>
+								</inputtiming>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{4CB36B5A-63DD-4981-A8D1-D678BE9FB1A8}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{F3D6A738-F34A-43AE-BC72-5046EA85EF11}</guid><name>TOPdesk administrator2</name><description/><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{F8EB8C33-CBB4-46AC-B621-33085671B113}</guid><name>TOPdesk administrator password2</name><description/><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{751729DB-EE43-4B73-97C4-FB7F43418983}</guid><name>TOPdesk UR2</name><description/><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task>
+						<properties>
+							<type>PWRSHELL</type>
+							<guid>{4CB36B5A-63DD-4981-A8D1-D678BE9FB1A8}</guid>
+							<description>Execute Windows PowerShell Script</description>
+							<enabled>yes</enabled>
+							<comments/>
+							<onerror>fail</onerror>
+						</properties>
+						<settings>
+							<username/>
+							<password encrypted="yes"/>
+							<usescript>yes</usescript>
+							<source>#basic script to query TOPdesk instance for custoemr specific incident values. 
+#Use when building RES ONE Service Store services to quickly have values on hand.
+
+ add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+        return true;
+    }
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+$username = "^[TOPdesk administrator2]"
+$password = "^[TOPdesk administrator password2]"
+$TOPdeskUrl = "^[TOPdesk UR2]"
+
+$token
+$baseUri = $TOPdeskUrl+"/tas/api"
+$output
+$temp
+$token = Invoke-RestMethod -Method Get -Uri ($baseUri+"/login/operator") -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($username+":"+$password ))}
+
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Authorization", "TOKEN id=`"$token`"")
+$output = ""
+
+ 
+$results = Invoke-RestMethod -Method Get -Uri ($baseUri+"/branches") -Headers $headers -ContentType 'application/json'
+
+
+foreach($result in $results) {
+    
+    $output += $result.name +';' + $result.id + '|'
+
+}
+ 
+$output = $output -replace ".$"
+
+Write-Host $output</source>
+							<scriptext>ps1</scriptext>
+							<outputwidth>80</outputwidth>
+							<timeout>10</timeout>
+							<terminate>no</terminate>
+							<setoutparameter parse="no">$[Results]</setoutparameter>
+							<snapins/>
+							<overrideexecutionpolicy>no</overrideexecutionpolicy>
+							<usex86psonx64>no</usex86psonx64>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+			<module>
+				<properties>
+					<guid>{9F711064-86C6-4176-9CB4-49D256AA640A}</guid>
+					<name>TOPdesk Department List</name>
+					<enabled>yes</enabled>
+					<description/>
+					<version>1.0.0</version>
+					<versioncomment/>
+					<properties>
+						<separators/>
+					</properties>
+					<folderpath>
+						<folder>
+							<name>ITSM</name>
+							<description/>
+							<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+							<folder>
+								<name>TOPdesk</name>
+								<description/>
+								<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+								<folder>
+									<name>Utility Tasks</name>
+									<description/>
+									<guid>{F4BA40AF-62A9-46BF-8844-33A748629D93}</guid>
+								</folder>
+							</folder>
+						</folder>
+					</folderpath>
+					<deleteusedresources>yes</deleteusedresources>
+				</properties>
+				<tasks>
+					<task hidden="yes">
+						<limitinvoke>no</limitinvoke>
+						<parameters>
+							<param>
+								<name>Results</name>
+								<value1/>
+								<value2/>
+								<value3/>
+								<type>0</type>
+								<description/>
+								<hint>Please provide the necessary input</hint>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="no" eraseprev="no">no</importbb>
+									<schedulejob showprev="no" eraseprev="no">no</schedulejob>
+								</inputtiming>
+								<inputoptions>
+									<confirm>no</confirm>
+									<force>yes</force>
+									<required>no</required>
+									<validation>no</validation>
+								</inputoptions>
+							</param>
+							<param>
+								<name>ExitCode</name>
+								<type>0</type>
+								<description/>
+								<selection/>
+								<inputtiming>
+									<importbb showprev="yes">no</importbb>
+									<schedulejob showprev="yes">no</schedulejob>
+								</inputtiming>
+							</param>
+						</parameters>
+						<conditions>
+							<condition guid="{31847F66-44BE-4884-AE85-BADD5EE84FB0}">
+								<expressions/>
+								<operator>AND</operator>
+								<actiontrue>3</actiontrue>
+								<when>0</when>
+								<action>3</action>
+								<enabled>yes</enabled>
+							</condition>
+						</conditions>
+						<variablescontainer><categories><category><guid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</guid><name>TOPdesk</name></category></categories><variables><variable><guid>{F3D6A738-F34A-43AE-BC72-5046EA85EF11}</guid><name>TOPdesk administrator2</name><description/><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>M.Kwiecinski@res.com</value1></details></variable><variable><guid>{F8EB8C33-CBB4-46AC-B621-33085671B113}</guid><name>TOPdesk administrator password2</name><description/><type>1</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1></value1></details></variable><variable><guid>{751729DB-EE43-4B73-97C4-FB7F43418983}</guid><name>TOPdesk UR2</name><description/><type>0</type><parentguid>{9B504FB1-F638-4A4C-9E3C-0B159E4ED1D2}</parentguid><details><value1>https://ressoftware.topdesk.net</value1></details></variable></variables></variablescontainer>
+					</task>
+					<task>
+						<properties>
+							<type>PWRSHELL</type>
+							<guid>{31847F66-44BE-4884-AE85-BADD5EE84FB0}</guid>
+							<description>Execute Windows PowerShell Script</description>
+							<enabled>yes</enabled>
+							<comments/>
+							<onerror>fail</onerror>
+						</properties>
+						<settings>
+							<username/>
+							<password encrypted="yes"/>
+							<usescript>yes</usescript>
+							<source>#basic script to query TOPdesk instance for custoemr specific incident values. 
+#Use when building RES ONE Service Store services to quickly have values on hand.
+
+ add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+        return true;
+    }
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+$username = "^[TOPdesk administrator2]"
+$password = "^[TOPdesk administrator password2]"
+$TOPdeskUrl = "^[TOPdesk UR2]"
+
+$token
+$baseUri = $TOPdeskUrl+"/tas/api"
+$output
+$temp
+$token = Invoke-RestMethod -Method Get -Uri ($baseUri+"/login/operator") -Headers @{"Authorization" = "Basic "+[System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($username+":"+$password ))}
+
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Authorization", "TOKEN id=`"$token`"")
+$output = ""
+
+ 
+$results = Invoke-RestMethod -Method Get -Uri ($baseUri+"/departments") -Headers $headers -ContentType 'application/json'
+
+
+foreach($result in $results) {
+    
+    $output += $result.name +';' + $result.id + '|'
+
+}
+ 
+$output = $output -replace ".$"
+
+Write-Host $output</source>
+							<scriptext>ps1</scriptext>
+							<outputwidth>80</outputwidth>
+							<timeout>10</timeout>
+							<terminate>no</terminate>
+							<setoutparameter parse="no">$[Results]</setoutparameter>
+							<snapins/>
+							<overrideexecutionpolicy>no</overrideexecutionpolicy>
+							<usex86psonx64>no</usex86psonx64>
+						</settings>
+					</task>
+				</tasks>
+			</module>
+		</modules>
+		<resources/>
+		<runbooks/>
+		<teams/>
+		<projectfolders/>
+		<modulefolders>
+			<folder>
+				<guid>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</guid>
+				<name>ITSM</name>
+				<description/>
+				<parent/>
+			</folder>
+			<folder>
+				<guid>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</guid>
+				<name>TOPdesk</name>
+				<description/>
+				<parent>{BFF140EB-26A1-4DDF-AB24-66C02950719E}</parent>
+			</folder>
+			<folder>
+				<guid>{94EC8A73-60C7-4511-AABB-1710AFA29A1F}</guid>
+				<name>Incident Management</name>
+				<description/>
+				<parent>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</parent>
+			</folder>
+			<folder>
+				<guid>{BDB688A1-3112-4375-9E09-F3645D4A90BB}</guid>
+				<name>User Management</name>
+				<description/>
+				<parent>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</parent>
+			</folder>
+			<folder>
+				<guid>{F4BA40AF-62A9-46BF-8844-33A748629D93}</guid>
+				<name>Utility Tasks</name>
+				<description/>
+				<parent>{53184401-8B25-46A1-B5BA-EF90DC4C054A}</parent>
+			</folder>
+		</modulefolders>
+		<resourcefolders/>
+		<runbookfolders/>
+		<teamfolders/>
+	</buildingblock>
+</AutomationManager>
